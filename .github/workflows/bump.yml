@@ -15,9 +15,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-      - name: auto merge
-        uses: robotology/gh-action-nightly-merge@v1.2.0
-        with:
-          stable_branch: 'master'
-          development_branch: 'develop'
 
