@@ -1,0 +1,18 @@
+Index: .github/workflows/bump.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: Bump version\r\non:\r\n  merge:\r\n    branches:\r\n      - master\r\njobs:\r\n  build:\r\n    runs-on: ubuntu-latest\r\n    steps:\r\n    - uses: actions/checkout@v2\r\n      with:\r\n        fetch-depth: '1'\r\n    - name: Bump version and push tag\r\n      uses: anothrNick/github-tag-action@1.26.0\r\n      env:\r\n        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}\r\n        WITH_V: true\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.github/workflows/bump.yml b/.github/workflows/bump.yml
+--- a/.github/workflows/bump.yml	(revision 6a743a0c9ae1d567cbc4d2488b19ffc738b24017)
++++ b/.github/workflows/bump.yml	(date 1614912378527)
+@@ -1,6 +1,6 @@
+ name: Bump version
+ on:
+-  merge:
++  push:
+     branches:
+       - master
+ jobs:
