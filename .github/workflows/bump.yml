@@ -15,3 +15,19 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+      run:
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+  master-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - name: Master to develop
+        uses: robotology/gh-action-nightly-merge@v1.3.1
+        with:
+          stable_branch: 'master'
+          development_branch: 'develop'
+          allow_ff: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
