@@ -1,6 +1,6 @@
-name: Bump version
+name: test version
 on:
-  merge:
+  push:
     branches:
       - master
 jobs:
@@ -9,9 +9,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '1'
+        fetch-depth: '0'
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+      - name: auto merge
+        uses: robotology/gh-action-nightly-merge@v1.2.0
+        with:
+          stable_branch: 'master'
+          development_branch: 'develop'
+
