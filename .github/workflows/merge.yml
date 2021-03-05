@@ -1,21 +1,20 @@
-name: test version
+name: 'Merge'
 on:
   push:
     branches:
       - master
 jobs:
-  build:
+  master-merge:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-      with:
-        fetch-depth: '0'
-      - name: auto merge
-        uses: robotology/gh-action-nightly-merge@v1.2.0
-        with:
-          stable_branch: 'master'
-          development_branch: 'develop'
-          env:
-            GITHUB_TOKEN:
-              ${{ secrets.GITHUB_TOKEN }}
+    - name: Checkout
+      uses: actions/checkout@v1
 
+    - name: Master Merge
+      uses: robotology/gh-action-nightly-merge@v1.3.1
+      with:
+        stable_branch: 'master'
+        development_branch: 'develop'
+        allow_ff: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
