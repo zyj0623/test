@@ -45,6 +45,4 @@ app.use(helmet.contentSecurityPolicy({
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, './dist', 'index.html'));
 });
-const currentProtocol = get(typeof window !== 'undefined' ? window : null, 'location.protocol', '');
-const port = currentProtocol === "http" ? "80" : "443";
-app.listen(port, '0.0.0.0');
+
