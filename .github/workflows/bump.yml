@@ -1,6 +1,6 @@
 name: Bump version
 on:
-  push:
+  merge:
     branches:
       - master
 jobs:
@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '0'
+        fetch-depth: '1'
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.26.0
       env:
