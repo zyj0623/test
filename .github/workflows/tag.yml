@@ -15,4 +15,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        INITIAL_VERSION: 1.95.0
+        INITIAL_VERSION: 2.2.0
