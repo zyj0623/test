@@ -1,14 +1,21 @@
-name: add issue labels
+name: Add Label
 on:
-  workflow_dispatch:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+
 jobs:
-  auto-merge:
+  add-label:
+    name: Add Label
     runs-on: ubuntu-latest
     steps:
-    - name: add labels
-    - uses: actions/checkout@v2
-    - uses: christianvuerings/add-labels@v1
-      with:
-        labels: dev_ready
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v2
+      - uses: christianvuerings/add-labels@v1
+        with:
+          labels: |
+            minor release
+            bug
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
