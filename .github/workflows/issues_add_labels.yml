@@ -2,7 +2,7 @@ name: add issue labels
 on:
   workflow_dispatch:
 jobs:
-  add_issues:
+  auto-merge:
     runs-on: ubuntu-latest
     steps:
     - name: add labels
