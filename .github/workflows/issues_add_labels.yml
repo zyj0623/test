@@ -1,0 +1,12 @@
+name: add issue labels
+on:
+  workflow_dispatch:
+jobs:
+  add_issues:
+    runs-on: ubuntu-latest
+    steps:
+    - name: add labels
+    - uses: actions/checkout@v2
+    - uses: KeisukeYamashita/attach-labels@v1
+      with:
+        labels: dev_ready
