@@ -15,3 +15,5 @@ jobs:
           labels: dev_ready
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          run: |
+            echo ${{ github.event.issue.number }}
