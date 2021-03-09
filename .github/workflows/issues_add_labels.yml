@@ -1,6 +1,9 @@
 name: Add Label
 on:
- workflow_dispatch:
+ #workflow_dispatch:
+ push:
+   branches:
+     master
 jobs:
   add-label:
     name: Add Label
