@@ -10,3 +10,5 @@ jobs:
     - uses: KeisukeYamashita/attach-labels@v1
       with:
         labels: dev_ready
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
