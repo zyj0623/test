@@ -7,7 +7,7 @@ jobs:
     steps:
     - name: add labels
     - uses: actions/checkout@v2
-    - uses: KeisukeYamashita/attach-labels@v1
+    - uses: christianvuerings/add-labels@v1
       with:
         labels: dev_ready
       env:
