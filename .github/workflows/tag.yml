@@ -1,21 +1,21 @@
-name: add git tag
+name: Add Tag
 on:
-  workflow_dispatch:
-  #push:
-   # branches:
-    #  - master
+  #workflow_dispatch:
+  push:
+    branches:
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
-        fetch-depth: '1'
+        fetch-depth: '0'
     - name: Bump version and push tag
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: patch
-        INITIAL_VERSION: 2.2.5
+        INITIAL_VERSION: 2.2.0
         #CUSTOM_TAG : 2.2.3
