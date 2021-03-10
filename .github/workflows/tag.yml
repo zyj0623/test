@@ -17,4 +17,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         #INITIAL_VERSION: 2.2.0
-        CUSTOM_TAG : 2.2.4
+        CUSTOM_TAG : 2.2.5
