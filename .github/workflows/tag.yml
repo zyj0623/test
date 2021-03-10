@@ -1,4 +1,4 @@
-name: test version
+name: add git tag
 on:
   workflow_dispatch:
   #push:
@@ -16,5 +16,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-        #INITIAL_VERSION: 2.2.0
-        CUSTOM_TAG : 2.2.5
+        DEFAULT_BUMP: patch
+        INITIAL_VERSION: 2.2.0
+        #CUSTOM_TAG : 2.2.3
