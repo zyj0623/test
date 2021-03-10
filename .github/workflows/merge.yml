@@ -1,4 +1,4 @@
-name: 'Nightly Merge'
+name: 'Auto Merge'
 
 on:
   push:
