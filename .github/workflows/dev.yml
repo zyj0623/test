@@ -1,0 +1,19 @@
+name: PR Extract Issues
+
+on:
+  pull_request:
+    branches:
+      - dev
+    types: [closed]
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions-cool/pr-extract-issues@v1.0.0
+        with:
+          way: 'commit'
+          issues-labels: 'dev_ready'
+          issues-comment: |
+            HI。这个 issue: ${number} 已经被修复了。
+          issues-close: false
