@@ -1,4 +1,4 @@
-name: Dev Ready Issues
+name: RC Ready Issues
 
 on:
   pull_request:
