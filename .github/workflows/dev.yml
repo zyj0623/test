@@ -15,5 +15,5 @@ jobs:
           way: 'commit'
           issues-labels: 'RC_READY'
           issues-comment: |
-            HI!这个 issue: ${number} 已经被修复了。
+            HI!这个 issue: ${number} 已合到
           issues-close: false
