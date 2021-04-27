@@ -4,16 +4,19 @@ on:
   pull_request:
     branches:
       - develop
-    types: [synchronize]
-
+    types: [closed]
 jobs:
   extract:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-extract-issues@v1.0.0
-        with:
+     - if: github.event.pull_request.merged == true
+       uses: actions-cool/pr-extract-issues@v1.0.0
+       with:
           way: 'title'
           issues-labels: 'RC_READY'
           issues-comment: |
             HI! 这个 issue: ${number} 已合到develop。
           issues-close: false
+     - if: github.event.pull_request.merged == true
+       run: "echo close"
+          
