@@ -10,10 +10,14 @@ jobs:
   extract:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/pr-extract-issues@v1.0.0
+      - if: github.event.pull_request.merged == true
+        uses: actions-cool/pr-extract-issues@v1.0.0
         with:
-          way: 'commit'
+          way: 'title'
           issues-labels: 'PROD_READY'
           issues-comment: |
             HI! 这个 issue: ${number} 已合到master。
           issues-close: false
+          
+      - if: github.event.pull_request.merged == false
+        run: "echo close"
