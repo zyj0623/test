@@ -14,14 +14,14 @@ jobs:
         fetch-depth: '0'
     - name: Bump version and push tag
       run: echo "this head branch $GITHUB_HEAD_REF"
-    - if: ${{ github.head_ref == 'develop' }}
+    - if: ${{ github.head_ref != 'develop' }}
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: patch
  
-    - if: ${{ github.head_ref != 'develop' }}
+    - if: ${{ github.head_ref == 'develop' }}
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
