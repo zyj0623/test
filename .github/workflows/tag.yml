@@ -21,10 +21,10 @@ jobs:
         DEFAULT_BUMP: patch
  
     - if: ${{ github.head_ref != 'develop' }}
+      run: "this head branch $GITHUB_HEAD_REF"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-      run: "this head branch $GITHUB_HEAD_REF"
 
         
         
