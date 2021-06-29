@@ -17,6 +17,12 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
+        if: ${{ github.head_ref != 'develop' }}
+        run: echo ${{ github.head_ref }}
         DEFAULT_BUMP: patch
-        INITIAL_VERSION: 2.3.0
-        #CUSTOM_TAG : 2.2.3
+        
+        
+
+        
+        
+
