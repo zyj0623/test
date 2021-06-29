@@ -2,7 +2,8 @@
 name: Add Tag
 on:
   #workflow_dispatch:
-  push:
+  #push:
+  pull_request:
     branches:
       - master
 jobs:
@@ -13,7 +14,7 @@ jobs:
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
-      run: echo "this head branch $GITHUB_REF"
+      run: echo "this head branch $GITHUB_head_REF"
     - if: ${{ github.head_ref != 'develop' }}
       uses: anothrNick/github-tag-action@1.26.0
       env:
@@ -26,8 +27,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
-
-        
         
 
         
