@@ -11,19 +11,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - if: github.event.pull_request.merged == true
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
       run: echo "this head branch $GITHUB_HEAD_REF $GITHUB_BASE_REF $GITHUB_REF"
+      
+    - if: github.event.pull_request.merged == true
     - if: ${{ github.head_ref != 'develop' }}
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: patch
- 
+        
+    - if: github.event.pull_request.merged == true
     - if: ${{ github.head_ref == 'develop' }}
       uses: anothrNick/github-tag-action@1.26.0
       env:
