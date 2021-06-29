@@ -18,7 +18,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         if: ${{ github.head_ref != 'develop' }}
-        run: echo ${{ github.head_ref }}
+        run: echo 'this head_ref is ${{ github.head_ref }}'
         DEFAULT_BUMP: patch
         
         
