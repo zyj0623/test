@@ -13,9 +13,9 @@ jobs:
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
-      run: echo "this head brach $github_head_ref"
+      run: "this head brach $github_head_ref"
       #uses: anothrNick/github-tag-action@1.26.0
-      if: ${{ github.head_ref == 'develop' }}
+    - if: ${{ github.head_ref == 'develop' }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
