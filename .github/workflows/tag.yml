@@ -30,8 +30,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         
-    - if: github.event.pull_request.merged == false
-      run: echo 'exit'
+    #- if: github.event.pull_request.merged == false
+    # run: echo 'exit'
 
         
 
