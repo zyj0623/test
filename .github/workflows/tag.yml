@@ -14,16 +14,16 @@ jobs:
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
-      run: echo "this head branch '$GITHUB_HEAD_REF' '$GITHUB_BASE_REF' '$GITHUB_REF'    
+      run: echo "this head branch $GITHUB_HEAD_REF $GITHUB_BASE_REF $GITHUB_REF    
       
-    - if: github.event.pull_request.merged == true && contains('$GITHUB_HEAD_REF', 'release**') == false
+    - if: github.event.pull_request.merged == true && contains(github.head_ref, 'release**') == false
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DEFAULT_BUMP: patch
         
-    - if:  github.event.pull_request.merged == true && contains('$GITHUB_HEAD_REF' ,'release**') == true 
+    - if:  github.event.pull_request.merged == true && contains(github.head_ref ,'release**') == true 
       uses: anothrNick/github-tag-action@1.26.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
