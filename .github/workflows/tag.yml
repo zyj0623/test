@@ -13,8 +13,8 @@ jobs:
       uses: actions/checkout@v2
       with:
         fetch-depth: '0'
-    - name: Bump version and push tag
-      run: echo "this head branch '$GITHUB_HEAD_REF' '$GITHUB_BASE_REF' '$GITHUB_REF' github.head_ref "
+    #- name: Bump version and push tag
+    # run: echo "this head branch '$GITHUB_HEAD_REF' '$GITHUB_BASE_REF' '$GITHUB_REF' github.head_ref "
       
     - if: ${{ github.event.pull_request.merged == true &&  contains(github.head_ref, 'release') == false }}
       uses: anothrNick/github-tag-action@1.26.0
